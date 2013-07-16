@@ -7,7 +7,7 @@ php:
 before_script:
   - git clone --depth 1 git://github.com/cakephp/cakephp ../cakephp && cd ../cakephp
   - sh -c "mysql -e 'CREATE DATABASE cakephp_test;'"
-  - chmod -R 777 ../cakephp/app/tmp
+  - chmod -R 777 ../app/tmp
   - echo "<?php
     class DATABASE_CONFIG {
     public \$test = array(
@@ -17,7 +17,7 @@ before_script:
       'login' => 'travis',
       'persistent' => false,
     );
-    }" > ../cakephp/app/Config/database.php
+    }" > ../app/Config/database.php
  
 script:
   - ./lib/Cake/Console/cake test PluginName AllTests --stderr
