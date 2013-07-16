@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/test_app/Plugin/TestPlugin/Config
+END
+nested.ini
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/test_app/Plugin/TestPlugin/Config/nested.ini
+END
+acl.ini.php
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/test_app/Plugin/TestPlugin/Config/acl.ini.php
+END
+bootstrap.php
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/test_app/Plugin/TestPlugin/Config/bootstrap.php
+END
+custom_config.php
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/test_app/Plugin/TestPlugin/Config/custom_config.php
+END
+load.php
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/test_app/Plugin/TestPlugin/Config/load.php
+END
+more.load.php
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/test_app/Plugin/TestPlugin/Config/more.load.php
+END
+routes.php
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/test_app/Plugin/TestPlugin/Config/routes.php
+END

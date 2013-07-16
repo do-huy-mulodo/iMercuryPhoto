@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Controller/Component/Auth
+END
+ActionsAuthorizeTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Controller/Component/Auth/ActionsAuthorizeTest.php
+END
+BlowfishAuthenticateTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Controller/Component/Auth/BlowfishAuthenticateTest.php
+END
+ControllerAuthorizeTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Controller/Component/Auth/ControllerAuthorizeTest.php
+END
+DigestAuthenticateTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Controller/Component/Auth/DigestAuthenticateTest.php
+END
+BasicAuthenticateTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Controller/Component/Auth/BasicAuthenticateTest.php
+END
+FormAuthenticateTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Controller/Component/Auth/FormAuthenticateTest.php
+END
+CrudAuthorizeTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Controller/Component/Auth/CrudAuthorizeTest.php
+END

@@ -1,0 +1,348 @@
+<?php
+App::uses('Error','Model/Api');
+App::uses('User', 'Model');
+class ValidateData {
+	/**
+	 * Validate data from Controller
+	 * @param unknown $_data
+	 * @param unknown $_controller
+	 * @return Ambigous <Error, NULL>
+	 */
+	public static function validate($_data,$_controller){
+		// Check controller name
+		switch ($_controller) {
+			case LOGIN_API:
+				break;
+			case REGISTER_API:
+				return ValidateData::validateRegister($_data);
+				break;
+			case LOST_PASS_API:
+				break;
+			case CHANGE_SETTING_API:
+				return ValidateData::validateChangeSetting($_data);
+				break;
+			case GET_LIKED_USER_API:
+				break;
+			case GET_PHOTO_INFO_API:
+				break;
+			case GET_PHOTO_API:
+				break;
+			case GET_USER_INFO_API:
+				return ValidateData::validateGetUserInfo($_data);
+				break;
+			case LIKE_API:
+				return ValidateData::validateLikes($_data);
+				break;
+			case LOGOUT_API:
+				return ValidateData::validateLogouts($_data);
+				break;
+			case UPLOAD_PHOTO_API:
+				return ValidateData::validateUpLoadPhoto($_data);
+				break;
+		}
+	}
+
+	/**
+	 * Validate params before register new account
+	 * @param unknown $data
+	 * @return Error|NULL
+	 */
+	public static function validateRegister($_data){
+		// Validate email
+		$error_email = ValidateData::validateEmail($_data);
+		if($error_email){
+			return $error_email;
+		}
+
+		// Validate password
+		$error_password = ValidateData::validatePassword($_data);
+		if($error_password){
+			return $error_password;
+		}
+
+		// Validate username
+		$error_username = ValidateData::validateUsername($_data);
+		if($error_username){
+			return $error_username;
+		}
+
+		// No error
+		$error = new Error(STATUS_NORMAL, MESSAGE_NORMAL);
+		return $error;
+	}
+
+	/**
+	 * Validate params before change setting account
+	 * @param unknown $data
+	 * @return Error|NULL
+	 */
+	public static function validateChangeSetting($_data){
+		// Validate Id and Token
+		$error_token = ValidateData::validateToken($_data);
+		if($error_token){
+			return $error_token;
+		}
+
+		// Validate username
+		$error_username = ValidateData::validateUsername($_data);
+		if($error_username){
+			return $error_username;
+		}
+
+		// Validate change password
+		$error_password = ValidateData::validateChangePassword($_data);
+		if($error_password){
+			return $error_password;
+		}
+
+		// Validate avatar photo
+		$error_photo = ValidateData::validateAvatar($_data);
+		if($error_photo){
+			return $error_photo;
+		}
+
+		// No error
+		$error = new Error(STATUS_NORMAL, MESSAGE_NORMAL);
+		return $error;
+	}
+
+	/**
+	 * Validate Get User Info Api
+	 * @param unknown $_data
+	 * @return Ambigous <Error, NULL>|Error
+	 */
+	public static function validateGetUserInfo($_data){
+		// Validate Id and Token
+		$error_token = ValidateData::validateToken($_data);
+		if($error_token){
+			return $error_token;
+		}
+
+		$error_userid = ValidateData::validateUserid($_data);
+		if($error_userid){
+			return $error_userid;
+		}
+
+		// No error
+		$error = new Error(STATUS_NORMAL, MESSAGE_NORMAL);
+		return $error;
+	}
+	
+	/**
+	 * Validate Upload Photo Api
+	 * @param unknown $_data
+	 * @return Ambigous <Error, NULL>|Error
+	 */
+	public static function validateUpLoadPhoto($_data){
+		// Validate Id and Token
+		$error_token = ValidateData::validateToken($_data);
+		if($error_token){
+			return $error_token;
+		}
+		
+		$error_photo = ValidateData::validatePhoto($_data);
+		if($error_photo){
+			return $error_photo;
+		}
+		
+		// No error
+		$error = new Error(STATUS_NORMAL, MESSAGE_NORMAL);
+		return $error;
+	}
+
+	/**
+	 * Validate logout api
+	 * @param unknown $_data
+	 * @return Ambigous <Error, NULL>|Error
+	 */
+	public static function validateLogouts($_data){
+
+		// Validate
+		if(ValidateData::validateToken($_data)){
+			return ValidateData::validateToken($_data);
+		}
+
+		// No error
+		$error = new Error(STATUS_NORMAL, MESSAGE_NORMAL);
+		return $error;
+	}
+
+	/**
+	 * Validate like api
+	 * @param unknown $_data
+	 * @return Ambigous <Error, NULL>|Error
+	 */
+	public static function validateLikes($_data){
+
+		// Validate
+		if(ValidateData::validateToken($_data)){
+			return ValidateData::validateToken($_data);
+		}
+
+		// No error
+		$error = new Error(STATUS_NORMAL, MESSAGE_NORMAL);
+		return $error;
+	}
+
+	/**
+	 * Validate Email
+	 * @param unknown $data
+	 * @return Error|NULL
+	 */
+	public static function validateEmail($data){
+		if(!isset($data['email']) || (isset($data['email']) && trim($data['email']) == "")){
+			$result = new Error(STATUS_MISSING_ARGUMENT, MESSAGE_MISSING_EMAIL);
+			return $result;
+		}else{
+			if(preg_match("/^[_a-z0-9-]+(\.[_a-z0-9+-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i", $data['email']) == 0){
+				$result = new Error(STATUS_INVALID_ARGUMENT, MESSAGE_INVALID_EMAIL);
+				return $result;
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * Validate Password
+	 * @param unknown $data
+	 * @return Error|NULL
+	 */
+	public static function validatePassword($data){
+		if(!isset($data['password']) ||  (isset($data['password']) && trim($data['password']) == "")){
+			$result = new Error(STATUS_MISSING_ARGUMENT, MESSAGE_MISSING_PASSWORD);
+			return $result;
+		}
+		else{
+			if(strlen($data['password']) < 8){
+				$result = new Error(STATUS_INVALID_ARGUMENT, MESSAGE_INVALID_PASSWORD);
+				return $result;
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * Validate Username
+	 * @param unknown $data
+	 * @return Error|NULL
+	 */
+	public static function validateUsername($data){
+		if(!isset($data['username']) ||  (isset($data['username']) && trim($data['username']) == "")){
+			$result = new Error(STATUS_MISSING_ARGUMENT, MESSAGE_MISSING_ARGUMENT);
+			return $result;
+		}
+		return null;
+	}
+
+	/**
+	 * Validate Email Is In DB
+	 * @param unknown $data
+	 * @return Error|NULL
+	 */
+	public static function validateEmailIsExist($data){
+		$error_email = ClassRegistry::init('User')->checkEmailExist($data['email']) ;
+		if($error_email == true){
+			$result = new Error(STATUS_MAIL_EXIST, MESSAGE_MAIL_EXIST);
+			return $result;
+		}
+		return null;
+	}
+
+	/**
+	 * Validate token
+	 * @param unknown $data
+	 * @return Error|NULL
+	 */
+	public static function validateToken($data){
+		if(!isset($data['id']) || !isset($data['token'])){
+			$result = new Error(STATUS_INVALID_ARGUMENT, MESSAGE_MISSING_ARGUMENT);
+			return $result;
+		}
+		if(!is_numeric($data['id'])){
+			$result = new Error(STATUS_INVALID_ARGUMENT, MESSAGE_INVALID_ID);
+			return $result;
+		}
+		if(ClassRegistry::init('User')->checkToken($data['id'],$data['token']) == false){
+			$result = new Error(STATUS_TOKEN_NOT_MATCH, MESSAGE_TOKEN_NOT_MATCH);
+			return $result;
+		}
+		return null;
+	}
+
+
+	/**
+	 * Validate change password
+	 * @param unknown $data
+	 * @return NULL
+	 */
+	public  static  function validateChangePassword($data){
+		if(isset($data['old_pwd']) && trim($data['old_pwd']) != ""){
+			if(!isset($data['new_pwd']) ||  (isset($data['new_pwd']) && trim($data['new_pwd']) == "")){
+				$result = new Error(STATUS_MISSING_ARGUMENT, MESSAGE_MISSING_NEW_PASSWORD);
+				return $result;
+			}else{
+				if(strlen($data['new_pwd']) < 8){
+					$result = new Error(STATUS_INVALID_ARGUMENT, MESSAGE_INVALID_NEW_PASSWORD);
+					return $result;
+				}
+			}
+		}
+		return null;
+	}
+
+
+	/**
+	 * Validate Photo
+	 * @param unknown $data
+	 * @return Error|NULL
+	 */
+	public static function validateAvatar($data){
+		if(isset($data['avatar'])){
+			$fileName =  $this->data['avatar']['name']; //the original file name
+			$splitName = explode(".", $fileName); //split the file name by the dot
+			$fileExt = strtolower(end($splitName)); //get the file extension
+			// Check extension of image
+			if($fileExt != "jpg" && $fileExt != "png" && $fileExt != "gif"){
+				$result = new Error(STATUS_NOT_VALID_EXTENSION, MESSAGE_NOT_VALID_EXTENSION);
+				return $result;
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * Validate user id
+	 * @param unknown $param
+	 * @return Error|NULL
+	 */
+	public static function validateUserid($data){
+		if(!isset($data['user_id']) ||  (isset($data['user_id']) && trim($data['user_id']) == "")){
+			$result = new Error(STATUS_MISSING_ARGUMENT, MESSAGE_MISSING_ARGUMENT);
+			return $result;
+		}
+		return null;
+	}
+	
+	/**
+	 * Validate Photo Upload
+	 * @param unknown $data
+	 * @return Error|NULL
+	 */
+	public static function validatePhoto($data){
+		if(isset($data['image'])){
+			$fileName =  $this->data['image']['name']; //the original file name
+			$splitName = explode(".", $fileName); //split the file name by the dot
+			$fileExt = strtolower(end($splitName)); //get the file extension
+			// Check extension of image
+			if($fileExt != "jpg" && $fileExt != "png" && $fileExt != "gif"){
+				$result = new Error(STATUS_NOT_VALID_EXTENSION, MESSAGE_NOT_VALID_EXTENSION);
+				return $result;
+			}
+		}else{
+			// Not input photo to upload
+			$result = new Error(STATUS_NOT_INPUT_FILE, MESSAGE_NOT_INPUT_FILE);
+			return $result;
+		}
+		return null;
+	}
+}

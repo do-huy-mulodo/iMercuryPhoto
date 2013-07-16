@@ -1,0 +1,43 @@
+<?php
+
+class Like extends AppModel
+{
+	var $useTable = "like";
+	var $name = "Like";
+
+	function checkExists($user_id,$photo_id) {
+		$this->user_id=$user_id;
+		$this->photo_id=$photo_id;
+		$param = array(
+			'conditions' => array(
+				'Like.user_id'=>$user_id,
+				'Like.photo_id'=>$photo_id
+				)
+			);
+		if($this->find('count',$param)>0){
+			return true;
+		}
+		return false;
+	}
+
+	function getLikeID($user_id,$photo_id){
+		$param = array(
+			'conditions' => array(
+				'Like.user_id'=>$user_id,
+				'Like.photo_id'=>$photo_id
+				)
+			);
+		$result=$this->find('first',$param);
+		return $result['Like']['id'];
+	}
+	
+	//get data from photo_id
+	function getDataFromPhotoId($photo_id){
+		$this->photo_id = $photo_id;
+		$data = $this->find("all", array('conditions' => array('photo_id' => $photo_id)));
+		return  $data;
+	}
+
+}
+
+?>

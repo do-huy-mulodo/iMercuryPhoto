@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Configure
+END
+ConfigReaderInterface.php
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Configure/ConfigReaderInterface.php
+END
+PhpReader.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Configure/PhpReader.php
+END
+IniReader.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Configure/IniReader.php
+END

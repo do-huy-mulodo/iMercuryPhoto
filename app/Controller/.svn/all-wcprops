@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/mulodo/svn/vn_imercury/!svn/ver/268/Sources/API/IMercuryPhoto/app/Controller
+END
+ChangesettingsController.php
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/mulodo/svn/vn_imercury/!svn/ver/268/Sources/API/IMercuryPhoto/app/Controller/ChangesettingsController.php
+END
+LikesController.php
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/app/Controller/LikesController.php
+END
+LostpasswordsController.php
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/app/Controller/LostpasswordsController.php
+END
+RegistersController.php
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/mulodo/svn/vn_imercury/!svn/ver/267/Sources/API/IMercuryPhoto/app/Controller/RegistersController.php
+END
+GetphotoinfosController.php
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/app/Controller/GetphotoinfosController.php
+END
+GetlikedusersController.php
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/app/Controller/GetlikedusersController.php
+END
+LoginsController.php
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/app/Controller/LoginsController.php
+END
+GetphotosController.php
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/app/Controller/GetphotosController.php
+END
+LogoutsController.php
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/app/Controller/LogoutsController.php
+END
+GetuserinfosController.php
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/mulodo/svn/vn_imercury/!svn/ver/265/Sources/API/IMercuryPhoto/app/Controller/GetuserinfosController.php
+END
+PagesController.php
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/app/Controller/PagesController.php
+END
+AppController.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/mulodo/svn/vn_imercury/!svn/ver/255/Sources/API/IMercuryPhoto/app/Controller/AppController.php
+END
+UploadphotosController.php
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/mulodo/svn/vn_imercury/!svn/ver/265/Sources/API/IMercuryPhoto/app/Controller/UploadphotosController.php
+END
+TestsController.php
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/app/Controller/TestsController.php
+END

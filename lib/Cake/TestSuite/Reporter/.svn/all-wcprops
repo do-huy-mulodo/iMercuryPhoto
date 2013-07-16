@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/TestSuite/Reporter
+END
+CakeHtmlReporter.php
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/TestSuite/Reporter/CakeHtmlReporter.php
+END
+CakeTextReporter.php
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/TestSuite/Reporter/CakeTextReporter.php
+END
+CakeBaseReporter.php
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/TestSuite/Reporter/CakeBaseReporter.php
+END

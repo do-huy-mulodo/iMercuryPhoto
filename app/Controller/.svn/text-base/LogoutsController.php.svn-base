@@ -1,0 +1,45 @@
+<?php
+/**
+ *
+ */
+require_once '../Utils/utils.php';
+App::uses('AppController', 'Controller');
+class LogoutsController extends AppController
+{
+	var $uses = array("User");
+	var $components = array("RequestHandler");
+
+	function index(){
+		//set layout
+		$this->layout=null;
+		$this->autoRender=false;
+		$data=$this->request->data;
+		$id=$data['id'];
+		$token=$data['token'];
+		if(is_numeric($id)){
+			$param = array('conditions' => array('User.id'=>$id,'User.token'=>$token));
+			//debug($param);
+			//debug($this->User->find('count',$param));
+			if($this->User->find('count',$param)>0){
+				$this->User->id=$id;
+				if($this->User->saveField('token',null)){
+					$result = Utils::initResponseData(CONSTANT_CODE_NORMAL,CONSTANT_MESSAGE_NORMAL, null);
+					$json = json_encode($result);
+				}
+			}
+			else{
+				$result = Utils::initResponseData('402','Token not match', null);
+				$json = json_encode($result);
+			}
+		}
+		else{
+			$result = Utils::initResponseData('401','Invalid Argument', null);
+			$json = json_encode($result);
+		}
+		//debug($json);
+		$this->set('_serialize', $result);
+		echo $json;
+
+	}
+}
+?>

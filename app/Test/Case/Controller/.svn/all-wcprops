@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/app/Test/Case/Controller
+END
+ChangeSettingsControllerTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/app/Test/Case/Controller/ChangeSettingsControllerTest.php
+END
+LikesControllerTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/app/Test/Case/Controller/LikesControllerTest.php
+END
+LostpasswordsControllerTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/app/Test/Case/Controller/LostpasswordsControllerTest.php
+END
+RegistersControllerTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/app/Test/Case/Controller/RegistersControllerTest.php
+END
+GetPhotoInfosControllerTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/app/Test/Case/Controller/GetPhotoInfosControllerTest.php
+END
+GetLikedUsersControllerTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/app/Test/Case/Controller/GetLikedUsersControllerTest.php
+END
+LoginsControllerTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/app/Test/Case/Controller/LoginsControllerTest.php
+END
+GetphotosControllerTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/app/Test/Case/Controller/GetphotosControllerTest.php
+END
+LogoutsControllerTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/app/Test/Case/Controller/LogoutsControllerTest.php
+END
+GetUserInfosControllerTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/app/Test/Case/Controller/GetUserInfosControllerTest.php
+END
+UploadPhotosControllerTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/app/Test/Case/Controller/UploadPhotosControllerTest.php
+END

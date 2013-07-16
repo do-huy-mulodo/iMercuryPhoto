@@ -1,0 +1,96 @@
+<?php
+require_once '../Utils/GravityWell_Image.php';
+App::uses('Response','Model/Api');
+App::uses('Error','Model/Api');
+class Photo extends AppModel
+{
+	var $useTable = "photo";
+	var $name = "Photo";
+	var $primaryKey = 'id';
+
+
+	/**
+	 * Handle upload photo
+	 * @param unknown $data
+	 * @param unknown $error
+	 */
+	function uploadPhoto($data,&$error){
+		// Upload photo to server
+		$this->uploadPhotoServer($data);
+		// Save DB
+		$_data = $this->insertNewPhoto($data);
+		if($_data == null){
+			$error->status= STATUS_INTERNAL_SERVER_ERROR;
+			$error->message= MESSAGE_INTERNAL_SERVER_ERROR;
+		}
+		return null;
+	}
+
+	/**
+	 * Insert new photo
+	 * @param unknown $data
+	 * @return Ambigous <mixed, boolean, multitype:>
+	 */
+	function insertNewPhoto($data){
+		$data = $this->save(array(
+				'comment' => $data['comment'],
+				'photo_path' => $data['photo_path'],
+				'user_id' => $data['id'],
+				'upload_date' => date("Y-m-d H:i:s"),
+				'thumnail_path' => $data['thumnail_path']
+		));
+		return $data;
+	}
+
+	// check id exist inDB
+	function checkPhotoIdExist($id){
+		$error = null;
+		$data = $this->find("first", array('conditions' => array('id' => $id)));
+		if($data != NULL){
+			$error['id'] = CONSTANT_MESSAGE_ID_EXIST;
+		}
+		return $error;
+	}
+
+	// get photo info
+	function getPhotoInfo($id, $userId){
+		$sql = "SELECT photo.id as id, photo.comment as comment, photo.photo_path as photo_path, photo.user_id as user_id, user.username as username,user.avatar as avatar, photo.upload_date as upload_date, photo.total_like as total_like, (SELECT count(`like`.id) FROM `like` WHERE `like`.user_id = ".$userId." and `like`.photo_id =  ".$id.")  as isLiked FROM photo LEFT JOIN user on photo.user_id = user.id WHERE photo.id =".$id;
+		//$data = $this->find('first', array('conditions'=> array('id'=> $id)));
+		$data = $this->query($sql);
+		return $data;
+	}
+
+	//get user like
+	function getLikedUser($photo_id){
+		$query_sql = "SELECT `user`.id as user_id,`user`.email as email,`user`.username as username, `like`.liked_date as liked_date from `like` LEFT JOIN `user` on `like`.user_id = `user`.id where `like`.photo_id = ".$photo_id;
+		$data = $this->query($query_sql);
+		return  $data;
+	}
+
+	/**
+	 * Upload photo to server
+	 * @param unknown $data
+	 */
+	function uploadPhotoServer(&$data){
+		$fileName =  $data['image']['name']; //the original file name
+		$randString = md5(time()); //encode the timestamp - returns a 32 chars long string
+		$splitName = explode(".", $fileName); //split the file name by the dot
+		$fileExt = strtolower(end($splitName)); //get the file extension
+		// File name
+		$newFileName  = strtolower($randString.'.'.$fileExt);
+		// Move upload file to dir of server
+		move_uploaded_file($data['image']['tmp_name'], WWW_ROOT.DS."files/photo_upload/".$newFileName);
+		$data['photo_path'] = "/files/photo_upload/".$newFileName;
+		$data['thumnail_path'] = '/files/photo_thumnail/'.$newFileName;
+
+		$image = new Gravitywell_Image(WWW_ROOT.DS."files/photo_upload/".$newFileName);
+		// Generate a thumbnail
+		$image->thumbnail(200, 200);
+			
+		// Save
+		$image->save(WWW_ROOT.DS."files/photo_thumnail/".$newFileName);
+
+	}
+}
+
+?>

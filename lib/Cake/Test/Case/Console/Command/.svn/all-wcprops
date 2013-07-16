@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Console/Command
+END
+BakeShellTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Console/Command/BakeShellTest.php
+END
+ApiShellTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Console/Command/ApiShellTest.php
+END
+CommandListShellTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Console/Command/CommandListShellTest.php
+END
+AclShellTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Console/Command/AclShellTest.php
+END
+TestShellTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Console/Command/TestShellTest.php
+END
+SchemaShellTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Console/Command/SchemaShellTest.php
+END

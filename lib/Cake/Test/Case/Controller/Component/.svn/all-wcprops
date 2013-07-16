@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Controller/Component
+END
+RequestHandlerComponentTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Controller/Component/RequestHandlerComponentTest.php
+END
+EmailComponentTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Controller/Component/EmailComponentTest.php
+END
+SecurityComponentTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Controller/Component/SecurityComponentTest.php
+END
+CookieComponentTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Controller/Component/CookieComponentTest.php
+END
+AclComponentTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Controller/Component/AclComponentTest.php
+END
+AuthComponentTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Controller/Component/AuthComponentTest.php
+END
+SessionComponentTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Controller/Component/SessionComponentTest.php
+END
+PaginatorComponentTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Controller/Component/PaginatorComponentTest.php
+END

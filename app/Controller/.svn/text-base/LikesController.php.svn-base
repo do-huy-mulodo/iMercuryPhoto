@@ -1,0 +1,109 @@
+<?php
+/**
+ *
+ */
+require_once '../Utils/utils.php';
+App::uses('AppController', 'Controller');
+
+class LikesController extends AppController
+{
+	var $uses = array("User","Photo","Like");
+	var $components = array("RequestHandler");
+	var $id;
+	var $token='';
+	var $photo_id;
+
+
+	function index(){
+		//set layout
+		$this->autoRender=false;
+		$data=$this->request->data;
+		//debug($data);
+
+		if($this->_checkargument($data)){
+			$user_id=$this->id;
+			$token=$this->token;
+			$photo_id=$this->photo_id;
+
+			$error=$this->User->checkToken($user_id,$token);
+
+			if(!isset($error['token'])){
+				$this->Like->user_id=$user_id;
+				$this->Like->photo=$photo_id;
+
+				$error = $this->Photo->checkPhotoIdExist($photo_id);
+
+				if($this->Like->checkExists($user_id,$photo_id)){
+					$this->Like->id=$this->Like->getLikeID($user_id,$photo_id);
+					$this->Like->delete($this->Like->id);
+					$this->_updateLike($photo_id,'unlike');
+					$result = Utils::initResponseData('200','Normal unlike', null);
+					$json = json_encode($result);
+				}
+				else if($error != null){
+					$this->Like->create();
+					$data = array(
+							'Like'=>array(
+									'user_id'=>$user_id,
+									'photo_id'=>$photo_id,
+									'liked_date'=>date("Y-m-d H:i:s")
+							),
+					);
+					$this->Like->save($data);
+					$this->_updateLike($photo_id,'like');
+					$result = Utils::initResponseData('200','Normal like', null);
+					$json = json_encode($result);
+				}
+				else{
+					$result = Utils::initResponseData('333','Photo not found', null);
+					$json = json_encode($result);
+				}
+			}
+			else{
+				$result = Utils::initResponseData('402','Token not match', null);
+				$json = json_encode($result);
+			}
+		}
+		else{
+			$result = Utils::initResponseData('401','Invalid Argument', null);
+			$json = json_encode($result);
+		}
+
+		//debug($json);
+		$this->set('_serialize', $result);
+		echo $json;
+
+
+	}
+
+	function _updateLike($photo_id,$type){
+		$param = array(
+				'conditions' => array('Photo.id'=>$photo_id)
+		);
+		$photo = $this->Photo->find('first',$param);
+		$like = (int)$photo['Photo']['total_like'];
+		if($type == 'like'){
+			$like++;
+		}
+		else if($type == 'unlike'){
+			$like--;
+		}
+		$this->Photo->id = $photo_id;
+		$this->Photo->saveField('total_like',$like);
+		//debug($like);
+	}
+
+	function _checkargument($data){
+		if(isset($data['id']) and isset($data['token']) and isset($data['photo_id'])){
+			$this->id = $data['id'];
+			$this->token = $data['token'];
+			$this->photo_id = $data['photo_id'];
+
+			if(is_numeric($this->id) and is_numeric($this->photo_id)){
+				return true;
+			}
+		}
+		return false;
+	}
+}
+?>

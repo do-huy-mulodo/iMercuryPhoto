@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Console/Command/Task
+END
+FixtureTaskTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Console/Command/Task/FixtureTaskTest.php
+END
+ProjectTaskTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Console/Command/Task/ProjectTaskTest.php
+END
+ExtractTaskTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Console/Command/Task/ExtractTaskTest.php
+END
+ViewTaskTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Console/Command/Task/ViewTaskTest.php
+END
+DbConfigTaskTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Console/Command/Task/DbConfigTaskTest.php
+END
+TemplateTaskTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Console/Command/Task/TemplateTaskTest.php
+END
+PluginTaskTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Console/Command/Task/PluginTaskTest.php
+END
+TestTaskTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Console/Command/Task/TestTaskTest.php
+END
+ModelTaskTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Console/Command/Task/ModelTaskTest.php
+END
+ControllerTaskTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Console/Command/Task/ControllerTaskTest.php
+END

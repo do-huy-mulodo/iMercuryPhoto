@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Model
+END
+ConnectionManagerTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Model/ConnectionManagerTest.php
+END
+ModelTestBase.php
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Model/ModelTestBase.php
+END
+BehaviorCollectionTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Model/BehaviorCollectionTest.php
+END
+ModelValidationTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Model/ModelValidationTest.php
+END
+ModelWriteTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Model/ModelWriteTest.php
+END
+ModelReadTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Model/ModelReadTest.php
+END
+ModelTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Model/ModelTest.php
+END
+ModelDeleteTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Model/ModelDeleteTest.php
+END
+models.php
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Model/models.php
+END
+ModelIntegrationTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Model/ModelIntegrationTest.php
+END
+CakeSchemaTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Model/CakeSchemaTest.php
+END
+AclNodeTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Model/AclNodeTest.php
+END
+ModelCrossSchemaHabtmTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Test/Case/Model/ModelCrossSchemaHabtmTest.php
+END

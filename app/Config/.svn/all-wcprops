@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/mulodo/svn/vn_imercury/!svn/ver/263/Sources/API/IMercuryPhoto/app/Config
+END
+constant.php
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/mulodo/svn/vn_imercury/!svn/ver/263/Sources/API/IMercuryPhoto/app/Config/constant.php
+END
+email.php.default
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/app/Config/email.php.default
+END
+acl.ini.php
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/app/Config/acl.ini.php
+END
+bootstrap.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/app/Config/bootstrap.php
+END
+acl.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/app/Config/acl.php
+END
+routes.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/app/Config/routes.php
+END
+database.php
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/app/Config/database.php
+END
+database.php.default
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/app/Config/database.php.default
+END
+email.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/app/Config/email.php
+END
+core.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/app/Config/core.php
+END

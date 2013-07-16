@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Network/Email
+END
+CakeEmail.php
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Network/Email/CakeEmail.php
+END
+MailTransport.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Network/Email/MailTransport.php
+END
+AbstractTransport.php
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Network/Email/AbstractTransport.php
+END
+SmtpTransport.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Network/Email/SmtpTransport.php
+END
+DebugTransport.php
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/mulodo/svn/vn_imercury/!svn/ver/247/Sources/API/IMercuryPhoto/lib/Cake/Network/Email/DebugTransport.php
+END

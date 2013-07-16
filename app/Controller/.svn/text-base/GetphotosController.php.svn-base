@@ -1,0 +1,125 @@
+<?php
+/**
+ *
+ */
+require_once '../Utils/utils.php';
+App::uses('AppController', 'Controller');
+
+class GetphotosController extends AppController
+{
+	var $uses = array("User","Photo");
+	var $components = array("RequestHandler");
+	var $type_list=array('user','excluded','mixed');
+	var $id;
+	var $id_need;
+	var $token='';
+	var $count;
+	var $type='user';
+	var $offset;
+
+
+	function index(){
+		//set layout
+		//$this->layout=null;
+		$this->autoRender = false;
+		$data=$this->request->data;
+		//debug($data);
+		if($this->_checkargument($data)){
+			$error=$this->User->checkToken($this->id,$this->token);
+			if(!isset($error['token'])){
+				//debug($this->_getphoto($id,$count,$type));
+				$result = Utils::initResponseData('200','Normal', $this->_getphoto($this->id_need,$this->count,$this->type,$this->offset));
+				$json = json_encode($result);
+			}
+			else{
+				$result = Utils::initResponseData('402','Token not match', null);
+				$json = json_encode($result);
+			}
+		}
+		else{
+			$result = Utils::initResponseData('401','Invalid Argument', null);
+			$json = json_encode($result);
+		}
+		//debug($json);
+		$this->set('_serialize', $result);
+		echo $json;
+
+
+	}
+
+	function _getSum($id_need){
+		$param = array(
+				'conditions' => array('Photo.user_id'=>$id_need),
+		);
+		return $this->Photo->find('count', $param);
+	}
+
+	function _getphoto($id_need,$count,$type,$offset){
+		switch ($type) {
+			case 'user':
+				{
+					$param = array(
+							'fields' => array('Photo.id','Photo.comment','Photo.photo_path','Photo.user_id','Photo.upload_date','Photo.total_like','Photo.thumnail_path'),
+							'conditions' => array('Photo.user_id'=>$id_need),
+							'order' => array('Photo.upload_date DESC'),
+							'limit' => $count,
+							'offset' => $offset
+					);
+
+				}
+				break;
+			case 'excluded':
+				{
+					$param = array(
+							'fields' => array('Photo.id','Photo.comment','Photo.photo_path','Photo.user_id','Photo.upload_date','Photo.total_like','Photo.thumnail_path'),
+							'conditions' => array('Photo.user_id !='=>$id_need),
+							'order' => array('Photo.upload_date DESC'),
+							'limit' => $count,
+							'offset' => $offset
+					);
+				}
+				break;
+			case 'mixed':
+				{
+					$param = array(
+							'order' => array('Photo.upload_date DESC'),
+							'limit' => $count
+					);
+				}
+				break;
+		}
+
+		$result = $this->Photo->find('all',$param);
+
+		if($type == 'user'){
+			$sum = array('sum' => $this->_getSum($this->id_need));
+			$result = array('photo_list' => $result,'sum' => $sum['sum']);
+		}
+		
+		return $result;
+	}
+
+	function _checkargument($data){
+		if(isset($data['id']) and isset($data['token']) and isset($data['count']) and isset($data['id_need'])){
+			$this->id = $data['id'];
+			$this->token = $data['token'];
+			$this->count = $data['count'];
+			$this->id_need = $data['id_need'];
+
+			if(isset($data['type']) and in_array($data['type'], $this->type_list)){
+				$this->type=$data['type'];
+			}
+				
+			if(isset($data['offset'])){
+				$this->offset=$data['offset'];
+			}
+				
+			if(is_numeric($this->id) and is_numeric($this->count) and is_numeric($this->id_need)){
+				return true;
+			}
+		}
+		return false;
+	}
+
+}
+?>

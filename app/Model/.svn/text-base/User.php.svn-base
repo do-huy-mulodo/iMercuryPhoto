@@ -1,0 +1,279 @@
+<?php
+App::uses('Response','Model/Api');
+App::uses('Error','Model/Api');
+class User extends AppModel{
+	var $useTable = "user";
+	var $name = "User";
+	var $primaryKey = 'id';
+
+	/**
+	 * Handle register api
+	 * @param unknown $data
+	 * @return string
+	 */
+	function registerUser($data,&$error){
+		// Check email exist in Model
+		$_error_email = $this->validateEmailIsExist($data);
+		if($_error_email){
+			// Set status error
+			$error = $_error_email;
+			return null;
+		}
+		
+		// Insert new user
+		$_data = $this->insertNewUser($data);
+		if($_data == null){
+			// Error - Set status 
+			$error->status= STATUS_INTERNAL_SERVER_ERROR;
+			$error->message= MESSAGE_INTERNAL_SERVER_ERROR;
+		}
+		
+		return null;
+	}
+
+	/**
+	 * Handle change setting api
+	 * @param unknown $data
+	 * @param unknown $error
+	 */
+	function changeSettingUser($data,&$error){
+		// Check old password is correct
+		$_error_old_password = $this->validateOldPassword($data);
+		if($_error_old_password){
+			// Set status error
+			$error = $_error_old_password;
+			return null;
+		}
+		// Check avatar to upload server
+		$this->checkAvatar($data);
+		// Update password
+		if(isset($data['old_pwd']) && trim($data['old_pwd']) != ""){
+			// Update new password
+			if($this->updatePassword($data) == null){
+				// Error - Set status 
+				$error->status= STATUS_INTERNAL_SERVER_ERROR;
+				$error->message= MESSAGE_INTERNAL_SERVER_ERROR;
+				return null;
+			}
+		}
+		
+		// Update user info
+		if($this->updateUserInfo($data) == null){
+			// Error - Set status
+			$error->status= STATUS_INTERNAL_SERVER_ERROR;
+			$error->message= MESSAGE_INTERNAL_SERVER_ERROR;
+			return null;
+		}
+		
+		// Response url avatar of user
+		$avatar_data = $this->getAvatarFromId($data['id']);
+		$_data = array('avatar' => $avatar_data['User']['avatar']);
+		return $_data;
+		
+	}
+	
+	/**
+	 * Handle get user info api
+	 * @param unknown $data
+	 * @param unknown $error
+	 */
+	function getUserInfo($data,&$error){
+		// Get user from id 
+		$_data = $this->getUserFromId($data['user_id']);
+		if($_data == null){
+			// Error - Set status
+			$error->status= STATUS_EMAIL_IS_NOT_EXIST;
+			$error->message= MESSAGE_USER_IS_NOT_EXIST;
+		}
+		return $_data;
+	}
+
+	/**
+	 * Check avatar and move it to server
+	 * @param unknown $data
+	 */
+	function checkAvatar(&$data){
+		if(isset($data['avatar'])){
+			$fileName =  $data['avatar']['name']; //the original file name
+			$randString = md5(time()); //encode the timestamp - returns a 32 chars long string
+			$splitName = explode(".", $fileName); //split the file name by the dot
+			$fileExt = strtolower(end($splitName)); //get the file extension
+			$newFileName  = strtolower($randString.'.'.$fileExt);
+			// Move upload file to dir of server
+			move_uploaded_file($data['avatar']['tmp_name'], WWW_ROOT.DS."files/photo_avatar/".$newFileName);
+			$data['avatar'] = "/files/photo_avatar/".$newFileName;
+		}
+	}
+
+	function checkLogin($email, $pass) {
+		$result = $this->find("first", array('fields' => array('id','email','username','token','created_date','avatar'),'conditions' => array('email' => $email, 'password' => md5($pass))));
+		return $result;
+	}
+
+	//get id from email
+	function getDataFromEmail($email) {
+		$data = $this->find("first", array('fields' => array('id'),'conditions' => array('email' => $email)));
+		return $data;
+			
+	}
+
+	// Update token for user when login
+	function createToken($id,$token) {
+		$this->id = $id;
+		$this->set('token', $token);
+		$this->set('edited_date', date("Y-m-d H:i:s"));
+		if($this->save()){
+			return true;
+		}
+
+		return false;
+	}
+	// check id is exist in DB
+	function checkIdExist($id){
+		$error = null;
+		$data = $this->find("first", array('conditions' => array('id' => $id)));
+		if($data != NULL){
+			$error['id'] = CONSTANT_MESSAGE_ID_EXIST;
+		}
+		//$error['id'] = $data['User']['id'];
+		return $error;
+	}
+
+	// Check email is exist in DB
+	function checkEmailExist($email) {
+		$error = null;
+		$data = $this->find("first", array('conditions' => array('email' => $email)));
+		if($data != NULL){
+			return true;
+		}
+		return false;
+	}
+
+	// Check token of user is valid
+	function checkToken($id,$token) {
+		$error = null;
+		$result = $this->find("count", array('conditions' => array('id' => $id, 'token' => $token)));
+		if($result <= 0){
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * Insert new user to DB
+	 * @param unknown $user
+	 * @return Ambigous <mixed, boolean, multitype:>
+	 */
+	function insertNewUser($user) {
+		$data = $this->save(array(
+				'email' => $user['email'],
+				'password' => md5($user['password']),
+				'username' => $user['username'],
+				'created_date' => date("Y-m-d H:i:s"),
+				'edited_date' => date("Y-m-d H:i:s"),
+				'avatar' => '',
+				'token' => ''
+		));
+		return $data;
+	}
+
+	/**
+	 * Update password of user
+	 * @param unknown $user
+	 * @return Ambigous <mixed, boolean, multitype:>
+	 */
+	function updatePassword($user) {
+		$data = $this->save(array(
+				'id' => $user['id'],
+				'password' => md5($user['password']),
+				'edited_date' => date("Y-m-d H:i:s"),
+		));
+
+		return $data;
+	}
+
+	/**
+	 * Update user info. Ex : avatar, username
+	 * @param unknown $user
+	 * @return Ambigous <mixed, boolean, multitype:>
+	 */
+	function updateUserInfo($user) {
+		// Check avatar to init condition
+		if(isset($user['avatar'])){
+			$array_condition = array(
+						'id' => $user['id'],
+						'username' => $user['username'],
+						'avatar' => $user['avatar'],
+						'edited_date' => date("Y-m-d H:i:s"),
+				);
+		}else{
+			$array_condition = array(
+					'id' => $user['id'],
+					'username' => $user['username'],
+					'edited_date' => date("Y-m-d H:i:s"),
+			);
+		}
+		// Save data
+		$data = $this->save($array_condition);
+		return $data;
+	}
+
+	// Check password is correct
+	function checkPassword($id, $pass) {
+		$result = $this->find("first", array('fields' => array('id'), 'conditions' => array('id' => $id, 'password' => md5($pass))));
+		return $result;
+	}
+
+	/**
+	 * Get user from ID
+	 * @param unknown $id
+	 * @return Ambigous <multitype:, NULL, mixed>
+	 */
+	function getUserFromId($id){
+		$data = $this->find("first", array('fields' => array('id','email','username'),'conditions' => array('id' => $id)));
+		return $data;
+	}
+
+	/**
+	 * Get url avatar from ID
+	 * @param unknown $id
+	 * @return Ambigous <multitype:, NULL, mixed>
+	 */
+	function getAvatarFromId($id){
+		$data = $this->find("first", array('fields' => array('avatar'),'conditions' => array('id' => $id)));
+		return $data;
+	}
+	
+	/**
+	 * Validate Email Is In DB
+	 * @param unknown $data
+	 * @return Error|NULL
+	 */
+	function validateEmailIsExist($data){
+		$error_email = $this->checkEmailExist($data['email']) ;
+		if($error_email == true){
+			$result = new Error(STATUS_MAIL_EXIST, MESSAGE_MAIL_EXIST);
+			return $result;
+		}
+		return null;
+	}
+	
+	/**
+	 * Validate to check old password is correct
+	 * @param unknown $data
+	 * @return NULL|Error
+	 */
+	function validateOldPassword($data){
+		if(!isset($data['old_pwd']) ||  (isset($data['old_pwd']) && trim($data['old_pwd']) == "")){
+			return null;
+		}
+		$error_old_password = $this->checkPassword($data['id'],$data['old_pwd']) ;
+		if($error_old_password == null){
+			$result = new Error(STATUS_WRONG_OLD_PASSWORD, MESSAGE_WRONG_OLD_PASSWORD);
+			return $result;
+		}
+		return null;
+	}
+}
+
+?>
