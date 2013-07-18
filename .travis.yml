@@ -15,7 +15,7 @@ before_script:
   - set +H
 
 script:
-  - sh -c "./lib/Cake/Console/cake test app Controller/LoginWithToken --stderr; fi"
+  - sh -c "./lib/Cake/Console/cake test app Controller/Logins --stderr; fi"
 
 notifications:
   email: false
