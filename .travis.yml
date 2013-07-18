@@ -7,7 +7,7 @@ env:
   - DB=mysql
 
 before_script:
-  - chmod -R 777 ./app/tmp
+  - chmod -R 777 app/tmp
   - sudo apt-get install lighttpd
   - pear channel-discover pear.cakephp.org
   - pear install --alldeps cakephp/CakePHP_CodeSniffer
