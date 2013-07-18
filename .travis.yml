@@ -1,26 +1,21 @@
 language: php
- 
+
 php:
-  - 5.3
   - 5.4
- 
+
+env:
+  - DB=mysql
+
 before_script:
-  - git clone --depth 1 git://github.com/cakephp/cakephp ../ && cd ../
-  - sh -c "mysql -e 'CREATE DATABASE cakephp_test;'"
-  - chmod -R 777 ../app/tmp
-  - echo "<?php
-    class DATABASE_CONFIG {
-    public \$test = array(
-      'datasource' => 'Database/Mysql',
-      'database' => 'cakephp_test',
-      'host' => '0.0.0.0',
-      'login' => 'travis',
-      'persistent' => false,
-    );
-    }" > ../app/Config/database.php
- 
+  - chmod -R 777 ./app/tmp
+  - sudo apt-get install lighttpd
+  - pear channel-discover pear.cakephp.org
+  - pear install --alldeps cakephp/CakePHP_CodeSniffer
+  - phpenv rehash
+  - set +H
+
 script:
-  - ./lib/Cake/Console/cake test PluginName AllTests --stderr
- 
+  - sh -c "./lib/Cake/Console/cake test app Controller/LoginWithToken --stderr; fi"
+
 notifications:
   email: false
